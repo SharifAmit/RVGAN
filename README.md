@@ -1,2 +1,3 @@
-# RVGAN
-Retinal Vessel Segmentation from Fundus Images using Multi-scale Generative Adversarial Networks
+# MICCAI2021 RVGAN
+
+RV-GAN: Segmenting Retinal Vascular Structure inFundus Photographs using a Novel Multi-scaleGenerative Adversarial Network
