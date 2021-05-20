@@ -10,7 +10,7 @@ import keras.backend as K
 
 
 def train(d_model1, d_model2, g_global_model, g_local_model, 
-          gan_model, dataset, n_epochs=20, n_batch=1, n_patch=[64,32],savedir='AAGAN'):
+          gan_model, dataset, n_epochs=20, n_batch=1, n_patch=[64,32],savedir='RVGAN'):
     
     if not os.path.exists(savedir):
       os.makedirs(savedir)
@@ -154,7 +154,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--epochs', type=int, default=100)
     parser.add_argument('--batch_size', type=int, default=4)
-    parser.add_argument('--npz_file', type=str, default='attenton2angio', help='path/to/npz/file')
+    parser.add_argument('--npz_file', type=str, default='DRIVE', help='path/to/npz/file',choices=['DRIVE','CHASEDB1','STARE'])
     parser.add_argument('--input_dim', type=int, default=512)
     parser.add_argument('--savedir', type=str, required=False, help='path/to/save_directory',default='AAGAN')
     args = parser.parse_args()
