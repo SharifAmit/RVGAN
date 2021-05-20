@@ -187,14 +187,12 @@ def fine_generator(x_coarse_shape=(256,256,64),input_shape=(512, 512, 3), mask_s
 def discriminator_ae(input_shape_fundus=(512, 512, 3),
                         input_shape_label=(512, 512, 1),
                         ndf=32, n_layers=3, activation='tanh',
-                        n_downsampling=1, name='Discriminator'):
+                        name='Discriminator'):
     X_input_fundus = Input(shape=input_shape_fundus,name="input_fundus")
     X_input_label = Input(shape=input_shape_label,name="input_label")
 
     features =[]
     X = Concatenate(axis=-1,name="concat")([X_input_fundus, X_input_label])
-    for i in range(n_downsampling):
-        X = AveragePooling2D((3,3), strides=(2,2), padding='same')(X)
     
     X_down1 = encoder_block(X,ndf,0)
     X_down1_res = disc_res_block(X_down1, ndf,base="block1_down")
