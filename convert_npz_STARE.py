@@ -3,16 +3,21 @@ from numpy import asarray,savez_compressed
 from keras.preprocessing.image import img_to_array
 from keras.preprocessing.image import load_img
 import argparse
+import glob
 
 #load all images in a directory into memory
-def load_images(imgpath,maskpath,labelpath,n_crops, size=(128,128)):
+def load_images(imgpath,maskpath,labelpath, n_crops,size=(128,128)):
     src_list, mask_list, label_list = list(), list(), list()
-    for i in range(20,40):
-        for j in range(n_crops):  ## Number of crops 
+    img_list = glob.glob("Stare/training/stare-original-images/*.ppm")
+    for i in img_list:
+        i = i.split('\\')
+        i = i[1].split('.')
+        #print(i[0])
+        for j in range(n_crops):
             # load and resize the image
-            filename = str(i+1)+"_"+str(j+1)+".png"
-            mask_name = str(i+1)+"_mask_" + str(j+1)+".png"
-            label_name = str(i+1)+"_label_" + str(j+1)+".png"
+            filename = i[0]+"_"+str(j+1)+".png"
+            mask_name = i[0]+"_mask_" + str(j+1)+".png"
+            label_name = i[0]+"_label_" + str(j+1)+".png"
             
             img = load_img(imgpath + filename, target_size=size)
             fundus_img = img_to_array(img)
@@ -34,14 +39,14 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_dim', type=int, default=(128,128))
-    parser.add_argument('--n_crops', type=int, default=210)
-    parser.add_argument('--outfile_name', type=str, default='DRIVE')
-    args = parser.parse_args()
+    parser.add_argument('--n_crops', type=int, default=270)
+    parser.add_argument('--outfile_name', type=str, default='STARE')
+    args = parser.parse_args() 
 
     # dataset path
-    imgpath = 'Drive_crop/Images/'
-    maskpath = 'Drive_crop/Masks/'
-    labelpath = 'Drive_crop/labels/'
+    imgpath = 'Stare_crop/Images/'
+    maskpath = 'Stare_crop/Masks/'
+    labelpath = 'Stare_crop/labels/'
     # load dataset
     [src_images, mask_images, label_images] = load_images(imgpath,maskpath,labelpath,args.n_crops,args.input_dim)
     print('Loaded: ', src_images.shape, mask_images.shape, label_images.shape)
