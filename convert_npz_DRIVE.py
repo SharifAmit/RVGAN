@@ -35,7 +35,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_dim', type=int, default=(128,128))
     parser.add_argument('--n_crops', type=int, default=210)
-    parser.add_argument('--outfile_name', type=str, default='DRIVE_stride_32_dim_128')
+    parser.add_argument('--outfile_name', type=str, default='DRIVE')
     args = parser.parse_args()
 
     # dataset path
