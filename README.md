@@ -45,4 +45,28 @@ sudo pip3 install keras==2.3.1
 ```
 sudo pip3 install -r requirements.txt
 ```
+### Dataset Pre-processing
+
+- Type this in terminal to run the **strided_crop_DRIVE.py**, **strided_crop_STARE.py** or **strided_crop_CHASE.py** file. 
+```
+python3 strided_crop_DRIVE.py --input_dim=128 --stride=32
+```
+- There are different flags to choose from. Not all of them are mandatory.
+```
+    '--input_dim', type=int, default=128
+    '--stride', type=int, default=32
+```
+
+### NPZ file conversion
+- Convert all the images to npz format using **convert_npz_DRIVE.py**, **convert_npz_STARE.py** or **convert_npz_CHASE.py** file. 
+```
+python3 convert_npz_DRIVE.py --input_dim=(128,128) --n_crops=210 --outfile_name='DRIVE_stride_32_dim_128'
+```
+- There are different flags to choose from. Not all of them are mandatory.
+```
+    '--input_dim', type=int, default=(128,128)
+    '--n_crops', type=int, default=210
+    '--outfile_name', type=str, default='DRIVE_stride_32_dim_128'
+```
+
 ## Work in Progress
