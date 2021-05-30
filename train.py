@@ -155,8 +155,8 @@ if __name__ == "__main__":
     parser.add_argument('--epochs', type=int, default=100)
     parser.add_argument('--batch_size', type=int, default=4)
     parser.add_argument('--npz_file', type=str, default='DRIVE', help='path/to/npz/file',choices=['DRIVE','CHASEDB1','STARE'])
-    parser.add_argument('--input_dim', type=int, default=512)
-    parser.add_argument('--savedir', type=str, required=False, help='path/to/save_directory',default='AAGAN')
+    parser.add_argument('--input_dim', type=int, default=128)
+    parser.add_argument('--savedir', type=str, required=False, help='path/to/save_directory',default='RVGAN')
     args = parser.parse_args()
     
     K.clear_session()
