@@ -60,13 +60,13 @@ python3 strided_crop_DRIVE.py --input_dim=128 --stride=32
 ### NPZ file conversion
 - Convert all the images to npz format using **convert_npz_DRIVE.py**, **convert_npz_STARE.py** or **convert_npz_CHASE.py** file. 
 ```
-python3 convert_npz_DRIVE.py --input_dim=(128,128) --n_crops=210 --outfile_name='DRIVE_stride_32_dim_128'
+python3 convert_npz_DRIVE.py --input_dim=(128,128) --n_crops=210 --outfile_name='DRIVE'
 ```
 - There are different flags to choose from. Not all of them are mandatory.
 ```
     '--input_dim', type=int, default=(128,128)
     '--n_crops', type=int, default=210
-    '--outfile_name', type=str, default='DRIVE_stride_32_dim_128'
+    '--outfile_name', type=str, default='DRIVE'
 ```
 
 ## Training
