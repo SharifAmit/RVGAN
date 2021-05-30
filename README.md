@@ -86,6 +86,6 @@ python3 train.py --npz_file=DRIVE --batch=4 --epochs=200 --savedir=RVGAN
 ```
 
 # License
-The code is released under the MIT License, you can read the license file included in the repository for details.
+The code is released under the BSD-3 License, you can read the license file included in the repository for details.
 
 ## Work in Progress
