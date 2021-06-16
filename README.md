@@ -45,6 +45,69 @@ sudo pip3 install keras==2.3.1
 ```
 sudo pip3 install -r requirements.txt
 ```
+## DRIVE Dataset
+
+- Please cite the paper if you use their data
+```
+@article{staal2004ridge,
+  title={Ridge-based vessel segmentation in color images of the retina},
+  author={Staal, Joes and Abr{\`a}moff, Michael D and Niemeijer, Meindert and Viergever, Max A and Van Ginneken, Bram},
+  journal={IEEE transactions on medical imaging},
+  volume={23},
+  number={4},
+  pages={501--509},
+  year={2004},
+  publisher={IEEE}
+}
+```
+
+### Dataset download link for DRIVE
+```
+https://drive.grand-challenge.org/
+```
+
+## STARE Dataset
+
+- Please cite the paper if you use their data
+```
+@article{hoover2000locating,
+  title={Locating blood vessels in retinal images by piecewise threshold probing of a matched filter response},
+  author={Hoover, AD and Kouznetsova, Valentina and Goldbaum, Michael},
+  journal={IEEE Transactions on Medical imaging},
+  volume={19},
+  number={3},
+  pages={203--210},
+  year={2000},
+  publisher={IEEE}
+}
+```
+
+### Dataset download link for STARE
+```
+https://cecas.clemson.edu/~ahoover/stare/
+```
+
+## CHASE-DB1 Dataset
+
+- Please cite the paper if you use their data
+```
+@article{owen2009measuring,
+  title={Measuring retinal vessel tortuosity in 10-year-old children: validation of the computer-assisted image analysis of the retina (CAIAR) program},
+  author={Owen, Christopher G and Rudnicka, Alicja R and Mullen, Robert and Barman, Sarah A and Monekosso, Dorothy and Whincup, Peter H and Ng, Jeffrey and Paterson, Carl},
+  journal={Investigative ophthalmology \& visual science},
+  volume={50},
+  number={5},
+  pages={2004--2010},
+  year={2009},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+```
+
+### Dataset download link for CHASE-DB1
+```
+https://blogs.kingston.ac.uk/retinal/chasedb1/
+```
+
 ### Dataset Pre-processing
 
 - Type this in terminal to run the **strided_crop_DRIVE.py**, **strided_crop_STARE.py** or **strided_crop_CHASE.py** file. 
