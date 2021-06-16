@@ -157,6 +157,8 @@ if __name__ == "__main__":
     parser.add_argument('--npz_file', type=str, default='DRIVE', help='path/to/npz/file',choices=['DRIVE','CHASEDB1','STARE'])
     parser.add_argument('--input_dim', type=int, default=128)
     parser.add_argument('--savedir', type=str, required=False, help='path/to/save_directory',default='RVGAN')
+    parser.add_argument('--resume_training', type=str, required=False,  default='no', choices=['yes','no'])
+    parser.add_argument('--inner_weight', type=int, default=0.5)
     args = parser.parse_args()
     
     K.clear_session()
@@ -189,7 +191,7 @@ if __name__ == "__main__":
     g_model_coarse = coarse_generator(img_shape=image_shape_coarse,mask_shape=mask_shape_coarse,n_downsampling=2, n_blocks=9, ncf=ncf,n_channels=1)
     
     
-    if resume_training:
+    if args.resume_training =='yes':
       #weight_name_global = "global_model_000070.h5"
       g_model_coarse.load_weights(weight_name_global)
 
@@ -197,7 +199,7 @@ if __name__ == "__main__":
       g_model_fine.load_weights(weight_name_local)
       
     rvgan_model = RVgan(g_model_fine,g_model_coarse, d_model1, d_model2,
-                  image_shape_fine,image_shape_coarse,image_shape_xglobal,mask_shape_fine,mask_shape_coarse,label_shape_fine,label_shape_coarse)
+                  image_shape_fine,image_shape_coarse,image_shape_xglobal,mask_shape_fine,mask_shape_coarse,label_shape_fine,label_shape_coarse,args.inner_weight)
     
     
     train(d_model1, d_model2,g_model_coarse, g_model_fine, rvgan_model, dataset, n_epochs=args.epochs, n_batch=args.batch_size, n_patch=[128,64],savedir=args.savedir)
