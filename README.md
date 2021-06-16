@@ -45,7 +45,7 @@ sudo pip3 install keras==2.3.1
 ```
 sudo pip3 install -r requirements.txt
 ```
-## DRIVE Dataset
+### DRIVE Dataset
 
 - Please cite the paper if you use their data
 ```
@@ -66,7 +66,7 @@ sudo pip3 install -r requirements.txt
 https://drive.grand-challenge.org/
 ```
 
-## STARE Dataset
+### STARE Dataset
 
 - Please cite the paper if you use their data
 ```
@@ -87,7 +87,7 @@ https://drive.grand-challenge.org/
 https://cecas.clemson.edu/~ahoover/stare/
 ```
 
-## CHASE-DB1 Dataset
+### CHASE-DB1 Dataset
 
 - Please cite the paper if you use their data
 ```
