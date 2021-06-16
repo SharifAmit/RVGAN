@@ -9,8 +9,8 @@ def weighted_feature_matching_loss(y_true, fake_samples, image_input, real_sampl
     fm_loss = 0
     for i in range(len(y_fake)):
         if i<3:
-            fm_loss += inner_weight[0] * K.mean(K.abs(y_fake[i] - y_real[i]))
+            fm_loss += inner_weight * K.mean(K.abs(y_fake[i] - y_real[i]))
         else:
-            fm_loss += inner_weight[1] * K.mean(K.abs(y_fake[i] - y_real[i]))
+            fm_loss += (1-inner_weight) * K.mean(K.abs(y_fake[i] - y_real[i]))
     fm_loss *= sample_weight
     return fm_loss
