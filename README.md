@@ -136,7 +136,7 @@ python3 convert_npz_DRIVE.py --input_dim=(128,128) --n_crops=210 --outfile_name=
 
 - Type this in terminal to run the train.py file
 ```
-python3 train.py --npz_file=DRIVE --batch=4 --epochs=200 --savedir=RVGAN
+python3 train.py --npz_file=DRIVE --batch=4 --epochs=200 --savedir=RVGAN --resume_training=no --inner_weight=0.5
 ```
 - There are different flags to choose from. Not all of them are mandatory
 
@@ -146,6 +146,8 @@ python3 train.py --npz_file=DRIVE --batch=4 --epochs=200 --savedir=RVGAN
    '--input_dim', type=int, default=128
    '--epochs', type=int, default=200
    '--savedir', type=str, required=False, help='path/to/save_directory',default='RVGAN'
+   '--resume_training', type=str, required=False,  default='no', choices=['yes','no']
+   '--inner_weight', type=float, default=0.5
 ```
 
 # License
