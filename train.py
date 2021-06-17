@@ -158,7 +158,7 @@ if __name__ == "__main__":
     parser.add_argument('--input_dim', type=int, default=128)
     parser.add_argument('--savedir', type=str, required=False, help='path/to/save_directory',default='RVGAN')
     parser.add_argument('--resume_training', type=str, required=False,  default='no', choices=['yes','no'])
-    parser.add_argument('--inner_weight', type=int, default=0.5)
+    parser.add_argument('--inner_weight', type=float, default=0.5)
     args = parser.parse_args()
     
     K.clear_session()
