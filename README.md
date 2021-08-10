@@ -14,7 +14,7 @@ This code is for our paper "RV-GAN: Segmenting Retinal Vascular Structure inFund
 https://arxiv.org/pdf/2101.00535v2.pdf
 ```
 
-# Citation (Please wait for the camera-ready version of the reference for citing the artcile)
+# Citation (Please wait for the published version for citing the article)
 ```
 @article{kamran2021rv,
   title={RV-GAN: Segmenting Retinal Vascular Structure in Fundus Photographs using a Novel Multi-scale Generative Adversarial Network},
