@@ -46,11 +46,6 @@ sudo pip3 install keras==2.3.1
 sudo pip3 install -r requirements.txt
 ```
 
-### Pretrained Weights
-```
-https://drive.google.com/drive/folders/1e_dMNjwsPo9ykoYuy3Fn0cmTg1FH8K5H?usp=sharing
-```
-
 ### DRIVE Dataset
 
 - Please cite the paper if you use their data
@@ -154,6 +149,11 @@ python3 train.py --npz_file=DRIVE --batch=4 --epochs=200 --savedir=RVGAN --resum
    '--savedir', type=str, required=False, help='path/to/save_directory',default='RVGAN'
    '--resume_training', type=str, required=False,  default='no', choices=['yes','no']
    '--inner_weight', type=float, default=0.5
+```
+
+## Pretrained Weights
+```
+https://drive.google.com/drive/folders/1e_dMNjwsPo9ykoYuy3Fn0cmTg1FH8K5H?usp=sharing
 ```
 
 
