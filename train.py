@@ -1,8 +1,9 @@
 from src.model import coarse_generator,fine_generator,RVgan,discriminator_ae
 from src.visualization import summarize_performance, summarize_performance_global, plot_history, to_csv
-from src.data_loader import resize, generate_fake_data_coarse, generate_fake_data_fine, generate_real_data, generate_real_data_random, load_real_data
+from src.dataloader import resize, generate_fake_data_coarse, generate_fake_data_fine, generate_real_data, generate_real_data_random, load_real_data
 import argparse
 import time
+import os
 from numpy import load
 import gc
 import keras.backend as K
@@ -158,6 +159,8 @@ if __name__ == "__main__":
     parser.add_argument('--input_dim', type=int, default=128)
     parser.add_argument('--savedir', type=str, required=False, help='path/to/save_directory',default='RVGAN')
     parser.add_argument('--resume_training', type=str, required=False,  default='no', choices=['yes','no'])
+    parser.add_argument('--weight_name_global',type=str, help='path/to/global/weight/.h5 file', required=False)
+    parser.add_argument('--weight_name_local',type=str, help='path/to/local/weight/.h5 file', required=False)
     parser.add_argument('--inner_weight', type=float, default=0.5)
     args = parser.parse_args()
     
@@ -193,10 +196,10 @@ if __name__ == "__main__":
     
     if args.resume_training =='yes':
       #weight_name_global = "global_model_000070.h5"
-      g_model_coarse.load_weights(weight_name_global)
+      g_model_coarse.load_weights(args.weight_name_global)
 
       #weight_name_local = "local_model_000070.h5"
-      g_model_fine.load_weights(weight_name_local)
+      g_model_fine.load_weights(args.weight_name_local)
       
     rvgan_model = RVgan(g_model_fine,g_model_coarse, d_model1, d_model2,
                   image_shape_fine,image_shape_coarse,image_shape_xglobal,mask_shape_fine,mask_shape_coarse,label_shape_fine,label_shape_coarse,args.inner_weight)
