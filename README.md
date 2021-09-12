@@ -14,14 +14,13 @@ This code is for our paper "RV-GAN: Segmenting Retinal Vascular Structure inFund
 https://arxiv.org/pdf/2101.00535v2.pdf
 ```
 
-# Citation
+# Citation ( Please wait for the proceedings to cite the article)
 ```
-@inproceedings{kamran2021rv,
-  title={RV-GAN: Segmenting Retinal Vascular Structure in Fundus Photographs using a Novel Multi-scale Generative Adversarial Network},
-  author={Kamran, Sharif Amit and Hossain, Khondker Fariha and Tavakkoli, Alireza and Zuckerbrod, Stewart Lee and Sanders, Kenton M and Baker, Salah A},
-  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)},
-  year={2021},
-  publisher = {IEEE},
+@article{kamran2021rv,
+  title={RV-GAN: Segmenting retinal vascular structure in fundus photographs using a novel multi-scale generative adversarial network},
+  author={Kamran, Sharif Amit and Hossain, Khondker Fariha and Tavakkoli, Alireza and Zuckerbrod, SL and Sanders, KM and Baker, Salah A},
+  journal={arXiv preprint arXiv:2101.00535},
+  year={2021}
 }
 ```
 
