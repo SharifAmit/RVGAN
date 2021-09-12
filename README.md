@@ -156,7 +156,7 @@ python3 train.py --npz_file=DRIVE --batch=4 --epochs=200 --savedir=RVGAN --resum
 https://drive.google.com/drive/folders/1e_dMNjwsPo9ykoYuy3Fn0cmTg1FH8K5H?usp=sharing
 ```
 
-## Prediction
+## Inference
 
 - Type this in terminal to run the infer.py file
 ```
