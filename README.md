@@ -16,11 +16,12 @@ https://arxiv.org/pdf/2101.00535v2.pdf
 
 # Citation (Please wait for the published version for citing the article)
 ```
-@article{kamran2021rv,
+@inproceedings{kamran2021rv,
   title={RV-GAN: Segmenting Retinal Vascular Structure in Fundus Photographs using a Novel Multi-scale Generative Adversarial Network},
   author={Kamran, Sharif Amit and Hossain, Khondker Fariha and Tavakkoli, Alireza and Zuckerbrod, Stewart Lee and Sanders, Kenton M and Baker, Salah A},
-  journal={arXiv preprint arXiv:2101.00535v2}, 
-  year={2021}
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)},
+  year={2021},
+  publisher = {IEEE},
 }
 ```
 
