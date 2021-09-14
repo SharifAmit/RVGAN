@@ -39,7 +39,7 @@ sudo apt-get install pip3 python3-dev
 ```
 - Install Tensorflow-Gpu version-2.0.0 and Keras version-2.3.1
 ```
-sudo pip3 install tensorflow-gpu==2.0.3
+sudo pip3 install tensorflow-gpu==2.0.0
 sudo pip3 install keras==2.3.1
 ```
 - Install packages from requirements.txt
