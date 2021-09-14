@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd 
 import os
-from dataloader import *
+from src.dataloader import *
 
 def summarize_performance(step,g_global_model,g_local_model, dataset, n_samples=3,savedir='RVGAN'):
     # select a sample of input images
