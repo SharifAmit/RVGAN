@@ -5,7 +5,7 @@ from keras.optimizers import Adam
 from keras.models import Model
 from keras.initializers import RandomNormal
 from functools import partial
-from losses import *
+from src.losses import *
 
 class ReflectionPadding2D(Layer):
     def __init__(self, padding=(1, 1), **kwargs):
