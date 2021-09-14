@@ -155,7 +155,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--epochs', type=int, default=100)
     parser.add_argument('--batch_size', type=int, default=4)
-    parser.add_argument('--npz_file', type=str, default='DRIVE', help='path/to/npz/file',choices=['DRIVE','CHASEDB1','STARE'])
+    parser.add_argument('--npz_file', type=str, default='DRIVE.npz', help='path/to/npz/file')
     parser.add_argument('--input_dim', type=int, default=128)
     parser.add_argument('--savedir', type=str, required=False, help='path/to/save_directory',default='RVGAN')
     parser.add_argument('--resume_training', type=str, required=False,  default='no', choices=['yes','no'])
