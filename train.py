@@ -167,7 +167,7 @@ if __name__ == "__main__":
     K.clear_session()
     gc.collect()
     start_time = time.time()
-    dataset = load_real_data(args.npz_file+'.npz')
+    dataset = load_real_data(args.npz_file)
     print('Loaded', dataset[0].shape, dataset[1].shape)
     
     # define input shape based on the loaded dataset
