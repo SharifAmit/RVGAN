@@ -143,8 +143,8 @@ python3 train.py --npz_file=DRIVE --batch=4 --epochs=200 --savedir=RVGAN --resum
 - There are different flags to choose from. Not all of them are mandatory
 
 ```
-   '--npz_file', type=str, default='DRIVE', help='path/to/npz/file'
-   '--batch_size', type=int, default=4
+   '--npz_file', type=str, default='DRIVE.npz', help='path/to/npz/file'
+   '--batch_size', type=int, default=24
    '--input_dim', type=int, default=128
    '--epochs', type=int, default=200
    '--savedir', type=str, required=False, help='path/to/save_directory',default='RVGAN'
