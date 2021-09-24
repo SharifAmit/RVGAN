@@ -16,12 +16,15 @@ https://arxiv.org/pdf/2101.00535v2.pdf
 
 # Citation
 ```
-@inproceedings{kamran2021rv,
-  title={RV-GAN: Segmenting retinal vascular structure in fundus photographs using a novel multi-scale generative adversarial network},
-  author={Kamran, Sharif Amit and Hossain, Khondker Fariha and Tavakkoli, Alireza and Zuckerbrod, SL and Sanders, KM and Baker, Salah A},
-  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
-  year={2021},
-  organization={Springer}
+@incollection{Kamran2021,
+  doi = {10.1007/978-3-030-87237-3_4},
+  url = {https://doi.org/10.1007/978-3-030-87237-3_4},
+  year = {2021},
+  publisher = {Springer International Publishing},
+  pages = {34--44},
+  author = {Sharif Amit Kamran and Khondker Fariha Hossain and Alireza Tavakkoli and Stewart Lee Zuckerbrod and Kenton M. Sanders and Salah A. Baker},
+  title = {{RV}-{GAN}: Segmenting Retinal Vascular Structure in Fundus Photographs Using a Novel Multi-scale Generative Adversarial Network},
+  booktitle = {Medical Image Computing and Computer Assisted Intervention {\textendash} {MICCAI} 2021}
 }
 ```
 
