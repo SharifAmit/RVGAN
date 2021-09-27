@@ -13,6 +13,11 @@ This code is for our paper "RV-GAN: Segmenting Retinal Vascular Structure inFund
 ```
 https://arxiv.org/pdf/2101.00535v2.pdf
 ```
+### Springer
+```
+https://link.springer.com/chapter/10.1007/978-3-030-87237-3_4
+```
+
 
 # Citation
 ```
