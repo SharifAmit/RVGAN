@@ -33,6 +33,12 @@ https://link.springer.com/chapter/10.1007/978-3-030-87237-3_4
 }
 ```
 
+
+# Virtual Oral Presentation (Youtube)
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/O64-aienoxw/0.jpg)](https://www.youtube.com/watch?v=O64-aienoxw) 
+
+
 ## Pre-requisite
 - Ubuntu 18.04 / Windows 7 or later
 - NVIDIA Graphics card
