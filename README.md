@@ -43,16 +43,16 @@ https://link.springer.com/chapter/10.1007/978-3-030-87237-3_4
 
 ## Installation Instruction for Ubuntu
 - Download and Install [Nvidia Drivers](https://www.nvidia.com/Download/driverResults.aspx/142567/en-us)
-- Download and Install via Runfile [Nvidia Cuda Toolkit 10.0](https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal)
-- Download and Install [Nvidia CuDNN 7.6.5 or later](https://developer.nvidia.com/rdp/cudnn-archive)
+- Download and Install via Runfile [Nvidia Cuda Toolkit 11.2](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=runfile_local)
+- Download and Install [Nvidia CuDNN 8.1.0 or later](https://developer.nvidia.com/rdp/cudnn-archive)
 - Install Pip3 and Python3 enviornment
 ```
-sudo apt-get install pip3 python3-dev
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt install python3.7
 ```
-- Install Tensorflow-Gpu version-2.0.0 and Keras version-2.3.1
+- Install Tensorflow-Gpu version-2.6.0
 ```
-sudo pip3 install tensorflow-gpu==2.0.0
-sudo pip3 install keras==2.3.1
+sudo pip3 install tensorflow-gpu
 ```
 - Install packages from requirements.txt
 ```
