@@ -54,9 +54,11 @@ def train(d_model1, d_model2, g_global_model, g_local_model,
 
               ## FINE DISCRIMINATOR  
               # update discriminator for real samples
-              d_loss1 = d_model1.train_on_batch([X_realA, X_realC], y1)[0]
+              d_feat1_real = d_model1.predict([X_realA,X_realC])
+              d_loss1 = d_model1.train_on_batch([X_realA, X_realC], [y1,d_feat1_real[1]])[0]
               # update discriminator for generated samples
-              d_loss2 = d_model1.train_on_batch([X_realA, X_fakeC], y1_fine)[0]
+              d_feat1_fake = d_model1.predict([X_realA,X_fakeC])
+              d_loss2 = d_model1.train_on_batch([X_realA, X_fakeC], [y1_fine,d_feat1_fake[1]])[0]
 
               #d_loss1 = 0.5*(d_loss1_real[0]+d_loss1_fake[0])
 
@@ -90,7 +92,7 @@ def train(d_model1, d_model2, g_global_model, g_local_model,
           
 
           # update the global generator
-          g_global_loss,_ = g_global_model.train_on_batch([X_realA_half,X_realB_half], [X_realC_half])
+          g_global_loss,_ = g_global_model.train_on_batch([X_realA_half,X_realB_half], [X_realC_half,_])
 
           
           d_model1.trainable = False
@@ -110,9 +112,11 @@ def train(d_model1, d_model2, g_global_model, g_local_model,
           g_global_model.trainable = True
           g_local_model.trainable = True
           # update the generator
+          d_feat1 = d_model1.predict([X_realA,X_realC])
+          d_feat2 = d_model2.predict([X_realA_half,X_realC_half])
           gan_loss,_,_,fm1_loss,fm2_loss,_,_,g_global_recon_loss, g_local_recon_loss = gan_model.train_on_batch([X_realA,X_realA_half,x_global,X_realB,X_realB_half,X_realC,X_realC_half], 
                                                                                                                                                       [y1, y2,
-                                                                                                                                                        X_fakeC,X_fakeC_half,
+                                                                                                                                                        d_feat1[1], d_feat2[1],
                                                                                                                                                         X_fakeC_half,X_fakeC,
                                                                                                                                                         X_fakeC_half,X_fakeC])
 

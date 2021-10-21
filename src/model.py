@@ -251,15 +251,15 @@ def RVgan(g_model_fine,g_model_coarse, d_model1, d_model2,image_shape_fine,image
     dis_out_2_fake = d_model2([in_coarse, gen_out_coarse])
 
     #feature matching loss
-    fm1 = partial(weighted_feature_matching_loss, image_input=in_fine,real_samples=label_fine, D=d_model1, inner_weight=inner_weight)
+    #fm1 = partial(weighted_feature_matching_loss, image_input=in_fine,real_samples=label_fine, D=d_model1, inner_weight=inner_weight)
     #fm1 = partial(feature_matching_loss, image_input=in_fine,real_samples=label_fine, D=d_model1)
-    fm2 = partial(weighted_feature_matching_loss, image_input=in_coarse,real_samples=label_coarse, D=d_model2, inner_weight=inner_weight)
+    #fm2 = partial(weighted_feature_matching_loss, image_input=in_coarse,real_samples=label_coarse, D=d_model2, inner_weight=inner_weight)
     #fm2 = partial(feature_matching_loss, image_input=in_coarse,real_samples=label_coarse, D=d_model2)
 
     model = Model([in_fine,in_coarse,in_x_coarse,in_fine_mask,in_coarse_mask,label_fine,label_coarse], [dis_out_1_fake[0],
                                                     dis_out_2_fake[0],
-                                                    gen_out_fine,
-                                                    gen_out_coarse,
+                                                    dis_out_1_fake[1],
+                                                    dis_out_1_fake[1],
                                                     gen_out_coarse,
                                                     gen_out_fine,
                                                     gen_out_coarse,
@@ -269,8 +269,8 @@ def RVgan(g_model_fine,g_model_coarse, d_model1, d_model2,image_shape_fine,image
     opt = Adam(lr=0.0002, beta_1=0.5)
     model.compile(loss=['hinge', 
                     'hinge',
-                    fm1,
-                    fm2,
+                    weighted_feature_matching_loss,
+                    weighted_feature_matching_loss,
                     'hinge',
                     'hinge',
                     'mse',
