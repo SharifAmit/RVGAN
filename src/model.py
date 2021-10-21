@@ -14,6 +14,10 @@ class ReflectionPadding2D(Layer):
         self.padding = padding
         self.input_spec = [InputSpec(ndim=4)]
         super(ReflectionPadding2D, self).__init__(**kwargs)
+        
+    def get_config(self):
+      cfg = super().get_config()
+      return cfg   
 
     def compute_output_shape(self, s):
         """ If you are using "channels_last" configuration"""
