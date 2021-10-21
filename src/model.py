@@ -1,7 +1,7 @@
 import tensorflow as tf
 from keras.layers import Layer, InputSpec, Reshape, Activation, Conv2D, Conv2DTranspose, SeparableConv2D, Dropout
 from keras.layers import Input, Add, Concatenate, Lambda,LeakyReLU,AveragePooling2D, BatchNormalization
-from keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 from keras.models import Model
 from keras.initializers import RandomNormal
 from functools import partial
@@ -134,7 +134,7 @@ def coarse_generator(img_shape=(256, 256, 3),mask_shape=(256,256,1),ncf=64, n_do
     model = Model(inputs=[X_input,X_mask], outputs=[X,feature_out],name='G_Coarse')
     model.compile(loss=['mse',None], optimizer=Adam(lr=0.0002, beta_1=0.5, beta_2=0.999))
 
-    model.summary()
+    #model.summary()
     return model
 
 def fine_generator(x_coarse_shape=(256,256,64),input_shape=(512, 512, 3), mask_shape=(512,512,1), nff=64, n_blocks=3, n_coarse_gen=1,n_channels = 1):
@@ -180,7 +180,7 @@ def fine_generator(x_coarse_shape=(256,256,64),input_shape=(512, 512, 3), mask_s
     model = Model(inputs=[X_input,X_mask,X_coarse], outputs=X, name='G_Fine')
     model.compile(loss='mse', optimizer=Adam(lr=0.0002, beta_1=0.5, beta_2=0.999))
 
-    model.summary()
+    #model.summary()
     return model
 
 
@@ -223,7 +223,7 @@ def discriminator_ae(input_shape_fundus=(512, 512, 3),
     X = Activation(activation)(X)
 
     model = Model(inputs=[X_input_fundus, X_input_label], outputs=[X]+features, name=name)
-    model.summary()
+    #model.summary()
     model.compile(loss=['mse',None,None,None,None,None,None], optimizer=Adam(lr=0.0002, beta_1=0.5, beta_2=0.999))
     return model
 
@@ -258,8 +258,10 @@ def RVgan(g_model_fine,g_model_coarse, d_model1, d_model2,image_shape_fine,image
 
     model = Model([in_fine,in_coarse,in_x_coarse,in_fine_mask,in_coarse_mask,label_fine,label_coarse], [dis_out_1_fake[0],
                                                     dis_out_2_fake[0],
-                                                    dis_out_1_fake[1],
-                                                    dis_out_1_fake[1],
+                                                    dis_out_1_fake[1],dis_out_1_fake[2],dis_out_1_fake[3],
+                                                    dis_out_1_fake[4],dis_out_1_fake[5],dis_out_1_fake[6],
+                                                    dis_out_2_fake[1],dis_out_2_fake[2],dis_out_2_fake[3],
+                                                    dis_out_2_fake[4],dis_out_2_fake[5],dis_out_2_fake[6],
                                                     gen_out_coarse,
                                                     gen_out_fine,
                                                     gen_out_coarse,
@@ -269,17 +271,19 @@ def RVgan(g_model_fine,g_model_coarse, d_model1, d_model2,image_shape_fine,image
     opt = Adam(lr=0.0002, beta_1=0.5)
     model.compile(loss=['hinge', 
                     'hinge',
-                    weighted_feature_matching_loss,
-                    weighted_feature_matching_loss,
+                    weighted_feature_matching_loss,weighted_feature_matching_loss,weighted_feature_matching_loss,
+                    weighted_feature_matching_loss,weighted_feature_matching_loss,weighted_feature_matching_loss,
+                    weighted_feature_matching_loss,weighted_feature_matching_loss,weighted_feature_matching_loss,
+                    weighted_feature_matching_loss,weighted_feature_matching_loss,weighted_feature_matching_loss,
                     'hinge',
                     'hinge',
                     'mse',
                     'mse'
                     ], 
               optimizer=opt,loss_weights=[1,1,
-                                          1,
-                                          1,
+                                          1,1,1,1,1,1,
+                                          1,1,1,1,1,1,
                                           10,10,10,10
                                           ])
-    model.summary()
+    #model.summary()
     return model

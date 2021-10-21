@@ -7,7 +7,7 @@ import os
 from numpy import load
 import gc
 import keras.backend as K
-
+import numpy as np
 
 
 def train(d_model1, d_model2, g_global_model, g_local_model, 
@@ -55,10 +55,12 @@ def train(d_model1, d_model2, g_global_model, g_local_model,
               ## FINE DISCRIMINATOR  
               # update discriminator for real samples
               d_feat1_real = d_model1.predict([X_realA,X_realC])
-              d_loss1 = d_model1.train_on_batch([X_realA, X_realC], [y1,d_feat1_real[1]])[0]
+              d_loss1 = d_model1.train_on_batch([X_realA, X_realC], [y1,d_feat1_real[1],
+              d_feat1_real[2],d_feat1_real[3],d_feat1_real[4],d_feat1_real[5],d_feat1_real[6]])[0]
               # update discriminator for generated samples
               d_feat1_fake = d_model1.predict([X_realA,X_fakeC])
-              d_loss2 = d_model1.train_on_batch([X_realA, X_fakeC], [y1_fine,d_feat1_fake[1]])[0]
+              d_loss2 = d_model1.train_on_batch([X_realA, X_fakeC], [y1_fine,d_feat1_fake[1],
+              d_feat1_fake[2],d_feat1_fake[3],d_feat1_fake[4],d_feat1_fake[5],d_feat1_fake[6]])[0]
 
               #d_loss1 = 0.5*(d_loss1_real[0]+d_loss1_fake[0])
 
@@ -114,11 +116,17 @@ def train(d_model1, d_model2, g_global_model, g_local_model,
           # update the generator
           d_feat1 = d_model1.predict([X_realA,X_realC])
           d_feat2 = d_model2.predict([X_realA_half,X_realC_half])
-          gan_loss,_,_,fm1_loss,fm2_loss,_,_,g_global_recon_loss, g_local_recon_loss = gan_model.train_on_batch([X_realA,X_realA_half,x_global,X_realB,X_realB_half,X_realC,X_realC_half], 
+          gan_loss,_,_,fm1_loss1,fm1_loss2,fm1_loss3,fm1_loss4,fm1_loss5,fm1_loss6,fm2_loss1,fm2_loss2,fm2_loss3,fm2_loss4,fm2_loss5,fm2_loss6,_,_,g_global_recon_loss, g_local_recon_loss = gan_model.train_on_batch([X_realA,X_realA_half,x_global,X_realB,X_realB_half,X_realC,X_realC_half], 
                                                                                                                                                       [y1, y2,
-                                                                                                                                                        d_feat1[1], d_feat2[1],
+                                                                                                                                                        d_feat1[1],d_feat1[2],d_feat1[3],
+                                                                                                                                                        d_feat1[4], d_feat1[5], d_feat1[6], 
+                                                                                                                                                        d_feat2[1],d_feat2[2],d_feat2[3],
+                                                                                                                                                        d_feat2[4],d_feat2[5],d_feat2[6],
                                                                                                                                                         X_fakeC_half,X_fakeC,
                                                                                                                                                         X_fakeC_half,X_fakeC])
+
+          fm1_loss = fm1_loss1 + fm1_loss2 + fm1_loss3 + fm1_loss4 + fm1_loss5 + fm1_loss6
+          fm2_loss = fm2_loss1 + fm2_loss2 + fm2_loss3 + fm2_loss4 + fm2_loss5 + fm2_loss6
 
           # summarize performance
           print('>%d, d1[%.3f] d2[%.3f] d3[%.3f] d4[%.3f] fm1[%.3f] fm2[%.3f] g_g[%.3f] g_l[%.3f] g_g_r[%.3f] g_l_r[%.3f] gan[%.3f]' % 
