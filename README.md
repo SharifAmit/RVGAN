@@ -41,7 +41,8 @@ https://link.springer.com/chapter/10.1007/978-3-030-87237-3_4
 - Ubuntu 18.04 / Windows 7 or later
 - NVIDIA Graphics card
 
-## For tensorflow 2.6 version check the following branch
+## Current branch is for Tensorflow 2.0-gpu version
+## For Tensorflow 2.6-gpu version check the following branch
 ```
 https://github.com/SharifAmit/RVGAN/tree/tf-2.6
 ```
