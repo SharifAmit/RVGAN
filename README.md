@@ -41,6 +41,11 @@ https://link.springer.com/chapter/10.1007/978-3-030-87237-3_4
 - Ubuntu 18.04 / Windows 7 or later
 - NVIDIA Graphics card
 
+## For tensorflow 2.6 version check the following branch
+```
+https://github.com/SharifAmit/RVGAN/tree/tf-2.6
+```
+
 ## Installation Instruction for Ubuntu
 - Download and Install [Nvidia Drivers](https://www.nvidia.com/Download/driverResults.aspx/142567/en-us)
 - Download and Install via Runfile [Nvidia Cuda Toolkit 10.0](https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal)
