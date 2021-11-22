@@ -64,7 +64,7 @@ def disc_res_block(X_input, filters,base):
     X_branch_2 = LeakyReLU(alpha=0.2,name=name_base + '1_2/LeakyRelu')(X_branch_2)
     X_add_branch_1_2 = Add(name=name_base + '1_1/add_branch1_2')([X_branch_2,X_branch_1])
 
-    X = Add(name=name_base + '2/add_skip')([X_input, X])
+    X = Add(name=name_base + '2/add_skip')([X_input, X_add_branch_1_2])
     return X
     
 def SFA(X,filters,i):
