@@ -72,11 +72,9 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--test_data', type=str, default='DRIVE', required=True, choices=['DRIVE','CHASE','STARE'])
-    parser.add_argument('--out_dir', type=str, default='pred', required=False)
     parser.add_argument('--weight_name_global',type=str, help='path/to/global/weight/.h5 file', required=True)
     parser.add_argument('--weight_name_local',type=str, help='path/to/local/weight/.h5 file', required=True)
     parser.add_argument('--stride', type=int, default=3, help='For faster inference use stride 16/32, for better result use stride 3.')
-    parser.add_argument('--out_dir')
     args = parser.parse_args() 
 
 ## Input dimensions
@@ -103,13 +101,6 @@ g_global_model = coarse_generator(img_shape=image_shape_coarse,mask_shape=mask_s
 g_global_model.load_weights(args.weight_name_global)
 g_global_model.compile(loss='mse',optimizer=opt)
 
-
-## Create Output Directory
-out_path = args.out_dir
-directories = [out_path,out_path+'/Coarse',out_path+'/Fine']
-for directory in directories:
-    if not os.path.exists(directory):
-        os.makedirs(directory)
 
 ## Find file numbers,paths or names
 if args.test_data == 'DRIVE':
