@@ -192,6 +192,21 @@ python3 infer.py --test_data=DRIVE --out_dir=test --weight_name_global=global_mo
 ```
 
 
+## Evaluation on test set
+
+- Type this in terminal to run the infer.py file
+```
+python3 eval.py --test_data=DRIVE --weight_name_global=global_model_100.h5 --weight_name_local=local_model_100.h5 --stride=3 
+```
+- There are different flags to choose from. Not all of them are mandatory
+
+```
+    '--test_data', type=str, default='DRIVE', required=True, choices=['DRIVE','CHASE','STARE']
+    '--weight_name_global',type=str, help='path/to/global/weight/.h5 file', required=True
+    '--weight_name_local',type=str, help='path/to/local/weight/.h5 file', required=True
+    '--stride', type=int, default=3, help='For faster inference use stride 16/32, for better result use stride 3.'
+```
+
 # License
 The code is released under the BSD 3-Clause License, you can read the license file included in the repository for details.
 
