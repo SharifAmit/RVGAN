@@ -172,7 +172,7 @@ python3 train.py --npz_file=DRIVE --batch=4 --epochs=200 --savedir=RVGAN --resum
 
 ## Pretrained Weights
 ```
-https://drive.google.com/drive/folders/1e_dMNjwsPo9ykoYuy3Fn0cmTg1FH8K5H?usp=sharing
+[https://drive.google.com/drive/folders/1e_dMNjwsPo9ykoYuy3Fn0cmTg1FH8K5H?usp=sharing](https://drive.google.com/drive/folders/1GxUzvFaLdeMtKIAeegswznLQzc4T7NZS?usp=sharing)
 ```
 
 ## Inference
